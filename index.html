@@ -148,7 +148,7 @@
             <h3>Message User</h3>
             <form class="user-message" action="index.html" method="post">
               <input type="text" name="user-name" value="Search for User">
-              <textarea name="user-message" rows="7" cols="40"></textarea>
+              <textarea name="user-message" rows="7" cols="40" maxlength="auto" style="resize:none;"></textarea>
               <button width="100%" height="50px" type="button" name="user-send">SEND</button>
             </form>
           </div>
@@ -158,6 +158,9 @@
               <input type="checkbox">
               <span class="slider"></span>
             </label>
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider"></span>
             </label>
           </div>
 
