@@ -2,23 +2,25 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/normilize.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/toggle-switch.css">
+
+
 
     <title>Web App Dash Board</title>
   </head>
   <body>
 
-      <header class="main-header flex">
+      <header class="main-header flex col-12 clearfix">
         <h2 class="main-logo">Your<span class="trademark">App&#8482;</span></h2>
 
         <div class="avitar">
-          <span class="notification"></span>
+          <a href="#"><span class="notification"><span class="notification-dot">&#8226;</span></span></a>
           <span class="bar"></span>
           <div class="avitar-pic"></div>
-
-          <span class="avitar-name">Jack Diven</span>
+          <a href="#"><span class="avitar-name">Jack Diven</span></a>
         </div>
       </header>
 
@@ -26,39 +28,78 @@
 
         <nav class="main-side-nav ">
           <ul class="side-nav">
-            <li class="icons"><span class="icon-hover"></span><img src="icons/icon-dashboard.svg" alt="dashboard"></li>
-            <li class="icons"><span class="icon-hover"></span><img src="icons/icon-members.svg" alt="members"></li>
-            <li class="icons"><span class="icon-hover"></span><img src="icons/icon-visits.svg" alt="visits"></li>
-            <li class="icons"><span class="icon-hover"></span><img src="icons/icon-settings.svg" alt="settings"></li>
+            <li class="icons"><a href="#?" class="link"><span class="icon-hover"></span><img src="icons/icon-dashboard.svg" alt="dashboard"></a></li>
+            <li class="icons"><a href="#?" class="link"><span class="icon-hover hidden"></span><img src="icons/icon-members.svg" alt="members"></a></li>
+            <li class="icons"><a href="#?" class="link"><span class="icon-hover hidden"></span><img src="icons/icon-visits.svg" alt="visits"></a></li>
+            <li class="icons"><a href="#?" class="link"><span class="icon-hover hidden"></span><img src="icons/icon-settings.svg" alt="settings"></a></li>
           </ul>
         </nav>
+<div class="row">
 
-      <div class="view-point">
+
+      <div class="view-point col-12">
+
+        <div class="row">
         <div class=" flex">
-          <div class="col-2">
-            <h3>Dashbord</h3>
+          <div class="flex justify-center col-2 border border-delete">
+            <h3 class="text-margin">Dashbord</h3>
           </div>
           <div class="col-10 flex search ">
-            <input style="width:50%;" type="search" name="searchbox" value="" placeholder="Search       Q ">
+            <input id="search" class="search-box search-icon" style="width:50%;" type="search" name="searchbox" value="" placeholder="Search">
           </div>
+        </div>
         </div>
 
         <div class="row">
-          <div class="flex popup-alert">
-            <span>Pop Up</span>
+          <div class="flex spaced popup-alert">
+            <div class="grouped">
+              <span class="alert">Alert </span>
+              <span class="alert-info">Null this is a alert telling you about the alert and how this means nothing at all. But to have you was your time reading it :)</span>
+            </div>
+            <span class="close-btn">x</span>
           </div>
         </div>
 
+<!-- DELETE THE BORDERS -->
+        <div class="row">
+          <div class="col-8">
+            <h3>TRAFFIC</h3>
+          </div>
+          <div class="col-4">
+            <div class="switch-toggle switch-candy">
+              <input id="hour3" name="view3" type="radio">
+              <label class="widget-time" for="hour3" onclick="">Hourly</label>
 
-        <canvas id="myLineChart" width="100%" height="35%"></canvas>
+              <input id="day3" name="view3" type="radio">
+              <label class="widget-time" for="day3" onclick="">Daily</label>
+
+              <input id="week3" name="view3" type="radio" checked>
+              <label class="widget-time" for="week3" onclick="">Weekly</label>
+
+              <input id="month3" name="view3" type="radio">
+              <label class="widget-time" for="month3" onclick="">Monthly</label>
+
+              <a></a>
+            </div>
+          </div>
+          <div class="col-12">
+            <canvas id="trafficChart" width="300" height="100"></canvas>
+          </div>
+        </div>
 
         <div class="full-line"></div>
-        <div class="col-6" style="border:1px solid #E9EAEA;">
-          <canvas id="myChart" width="400" height="250"></canvas>
+          <div class="row">
+
+          <div class="col-6" style="border:1px solid #E9EAEA;">
+            <h3>DAILY TRAFFIC</h3>
+            <canvas id="myChart" width="100" height="50"></canvas>
+          </div>
+          <div class="col-6" style="border:1px solid #E9EAEA;">
+            <h3>MOBILE USERS</h3>
+              <canvas id="myDoughnutChart" width="100" height="50"></canvas>
+          </div>
         </div>
-        <div class="col-6" style="border:1px solid #E9EAEA;">
-            <canvas id="myDoughnutChart" width="400" height="250"></canvas>
-        </div>
+
 
         <div class="center-line"></div>
         <!-- <canvas id="myChart" width="400" height="400"></canvas> -->
@@ -100,75 +141,191 @@
             </symbol>
           </svg>
           <!-- end svg -->
-          <div class="col-12">
+
+          <!-- SOCIAL WIDGET -->
+          <div class="col-12 social-widget">
             <h3>Social Stats</h3>
           </div>
-
           <div class="col-4 flex">
-              <svg width="90" height="90">
+            <div class="border flex social-grow">
+              <svg width="90" height="80">
                 <rect x="0" y="0" width="69" height="69" rx="55" ry="55" fill="#7377BF" stroke="#7377BF" stroke-width="0" />
                 <use height="50" width="50" xlink:href="#twitter" class="twitter"/>
               </svg>
-              <div class="social-stats">
+              <div class="social-stats social-inner-text">
                 <h4>Twitter</h4>
-                <span>10,000</span>
+                <span class="text-lg">10,345</span>
+              </div>
               </div>
           </div>
           <div class="col-4 flex">
-            <svg width="90" height="90">
+            <div class="border flex social-grow">
+              <svg width="90" height="80">
                 <rect x="0" y="0" width="69" height="69" rx="55" ry="55" fill="#7377BF" stroke="#7377BF" stroke-width="0" />
                 <use height="50" width="50" xlink:href="#facebook" class="twitter"/>
               </svg>
-              <div class="social-stats">
-                <h4>Twitter</h4>
-                <span>10,000</span>
+              <div class="social-stats social-inner-text">
+                <h4>Facebook</h4>
+                <span class="text-lg">8,739</span>
               </div>
+            </div>
           </div>
-          <div class="col-4 flex">
-              <svg width="90" height="90">
+          <div class="col-4 flex end-spacing">
+            <div class="border flex social-grow">
+              <svg width="90" height="80">
                 <rect x="0" y="0" width="69" height="69" rx="55" ry="55" fill="#7377BF" stroke="#7377BF" stroke-width="0" />
                 <use height="50" width="50" xlink:href="#google-plus" class="twitter"/>
               </svg>
-              <div class="social-stats">
-                <h4>Twitter</h4>
-                <span>10,000</span>
+              <div class="social-stats social-inner-text">
+                <h4>Google+</h4>
+                <span class="text-lg">2,530</span>
               </div>
           </div>
+        </div>
 
         </div>
 
         <div class="row">
-          <div class="col-6">
+          <div class="col-6 widget-panel border widget-layout">
             <h3>New Members</h3>
+            <ul>
+              <li class="flex spaced">
+                <div class="group flex">
+                  <div class="avitar-pic"></div>
+                  <span class="avitar-name-new-members">Jack Diven <br><a href="#"> jackbrown@example.com</a></span>
+                </div>
+                <span class="date">10/15/15</span>
+              </li>
+              <li>
+                <div class="divider"></div>
+              </li>
+              <li class="flex spaced">
+                <div class="group flex">
+                  <div class="avitar-pic-1"></div>
+                  <span class="avitar-name-new-members">Jack Diven <br><a href="#"> jackbrown@example.com</a></span>
+                </div>
+                <span class="date">10/15/15</span>
+              </li>
+              <li>
+                <div class="divider"></div>
+              </li>
+              <li class="flex spaced">
+                <div class="group flex">
+                  <div class="avitar-pic-2"></div>
+                  <span class="avitar-name-new-members">Jack Diven <br><a href="#"> jackbrown@example.com</a></span>
+                </div>
+                <span class="date">10/15/15</span>
+              </li>
+              <li>
+                <div class="divider"></div>
+              </li>
+              <li class="flex spaced">
+                <div class="group flex">
+                  <div class="avitar-pic-3"></div>
+                  <span class="avitar-name-new-members">Jack Diven <br><a href="#"> jackbrown@example.com</a></span>
+                </div>
+                <span class="date">10/15/15</span>
+              </li>
+              <li>
+                <div class="divider"></div>
+              </li>
+            </ul>
           </div>
-          <div class="col-6">
+          <div class="col-6 border widget-panel">
             <h3>Revent Activity</h3>
+            <ul>
+              <li class="flex spaced">
+                <div class="group flex">
+                  <div class="avitar-pic"></div>
+                  <span class="avitar-name-new-members">Jack Diven <br><a href="#"> jackbrown@example.com</a></span>
+                </div>
+                <a class="arrow" href="#">&#8250;</a>
+              </li>
+              <li>
+                <div class="divider"></div>
+              </li>
+              <li class="flex spaced">
+                <div class="group flex">
+                  <div class="avitar-pic-1"></div>
+                  <span class="avitar-name-new-members">Jack Diven <br><a href="#"> jackbrown@example.com</a></span>
+                </div>
+                <a class="arrow" href="#">&#8250;</a>
+              </li>
+              <li>
+                <div class="divider"></div>
+              </li>
+              <li class="flex spaced">
+                <div class="group flex">
+                  <div class="avitar-pic-2"></div>
+                  <span class="avitar-name-new-members">Jack Diven <br><a href="#"> jackbrown@example.com</a></span>
+                </div>
+                <a class="arrow" href="#">&#8250;</a>
+              </li>
+              <li>
+                <div class="divider"></div>
+              </li>
+              <li class="flex spaced">
+                <div class="group flex">
+                  <div class="avitar-pic-3"></div>
+                  <span class="avitar-name-new-members">Jack Diven <br><a href="#"> jackbrown@example.com</a></span>
+                </div>
+                <a class="arrow" href="#">&#8250;</a>
+              </li>
+              <li>
+                <div class="divider"></div>
+              </li>
+            </ul>
           </div>
-          <div class="col-6">
-            <h3>Message User</h3>
-            <form class="user-message" action="index.html" method="post">
-              <input type="text" name="user-name" value="Search for User">
-              <textarea name="user-message" rows="7" cols="40" maxlength="auto" style="resize:none;"></textarea>
-              <button width="100%" height="50px" type="button" name="user-send">SEND</button>
+          <div class="col-6 border widget-panel flex justify-widget border-delete">
+            <h3 id="msUser">Message User</h3>
+            <form id="dm-user" class="user-message" action="index.html" method="post">
+              <input id="error" autocomplete="on" type="text" name="user-name" placeholder="Search for User" required>
+              <textarea id="error" class="input-areas" name="user-message" rows="5" cols="40" placeholder="Message for User" required></textarea>
+              <button id="sendBtn" class="btn-message" type="button" name="user-send">SEND</button>
             </form>
           </div>
-          <div class="col-6">
+          <!-- Settings Widget -->
+          <div class="col-6 border widget-panel flex justify-widget border-delete">
             <h3>Settings</h3>
-            <label class="switch">
-              <input type="checkbox">
-              <span class="slider"></span>
-            </label>
-            <label class="switch">
-              <input type="checkbox">
-              <span class="slider"></span>
-            </label>
+            <div class="flex col-6 justify-settings">
+              <span class="settings-label">Send Email Notification</span>
+              <div class="col-2">
+                <label class="switch">
+                  <input type="checkbox">
+                  <span class="slider"><span class="slider-on">ON</span></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="flex">
+              <div class="flex col-6 justify-settings">
+                <span class="settings-label">Set Profile to Public</span>
+                <div class="col-2">
+                  <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider"><span class="slider-on">ON</span></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <select class="dropdown-timezone" name="Select Timezone">
+              <option value="time">Select Timezone</option>
+            </select>
+            <div class="flex settings-btn">
+              <button id="save-btn" class="btn-save settings-btn" type="button" name="user-send">SAVE</button>
+              <button class="btn-cancel settings-btn" type="button" name="user-send">CANCEL</button>
+            </div>
           </div>
+
 
         </div>
 
       </div>
+      </div>
 
     </main>
+    <footer>asd</footer>
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="js/app.js"></script>

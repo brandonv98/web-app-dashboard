@@ -1,0 +1,38 @@
+// grid variables
+$grid-columns: 12;
+$grid-max-width: 65em;
+
+
+// breakpoints
+$breakpoint-small: "only screen and (min-width: 20em)";
+$breakpoint-medium: "only screen and (min-width: 30em)";
+
+// Mixins
+@mixin border-box {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    }
+
+
+//extends
+.wrapper,
+.row {
+    @extend %clearfix;
+}
+
+// variables
+.wrapper {
+    width: 95%;
+    max-width: $grid-max-width;
+    }
+
+// MEDIA
+@media #{$breakpoint-medium} {
+  @for $i from 1 through 12 {
+
+    .column-#{$i} {
+            width: 100% / 12 * $i;
+        }
+
+}

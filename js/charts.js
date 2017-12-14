@@ -1,82 +1,172 @@
-var ctx = document.getElementById("myLineChart").getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: [ "16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3", "4-10", "11-17", "18-24", "25-31"],
-        datasets: [{
-            label: 'Traffic',
-            // xAxisID: '500',
-            // data: [{
-            //             x: 10,
-            //             y: 0
-            //         }, {
-            //             x: 20,
-            //             y: 50
-            //         }],
-            data: [500, 1500, 725, 1700, 2200, 1600, 2200, 1500, 2000, 1200, 2000, 2200, 2000, 2200, 2200],
-            backgroundColor: [
-                'rgba(116, 119, 191, 0.2)',
-                // 'rgba(54, 162, 235, 0.2)',
-            ],
-            borderColor: [
-                'rgba(116, 119, 191, 0.4)',
-            ],
-            pointRadius: [5, 5, ,5, 5, 5, 5, 5, 5, 5, 5, 5],
-            borderWidth: 3
-        }]
+// Traffic Charts Data and Options
+
+const newTrafficChart = {
+  options: {
+    legend: {
+      display: false
     },
-    options: {
-      elements: {
-            line: {
-                tension: 0, // disables bezier curves
-            }
-        },
-        scales: {
-            yAxes: [{
-              // type: 'category',
-              // labels: ['2500', '2000', '1500', '1000', '500'],
-              stacked: true
-            }]
+    layout: {
+      padding: {
+        top: 20,
+        right: 20,
+        bottom: 20,
+        left: 20
+      }
+    },
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            min: 0
+          }
         }
+      ]
     }
-}); // end line chart
+  },
+  monthly: {
+    labels: [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ],
+    datasets: [
+      {
+        data: [ 750, 1250, 750, 1250, 1750, 1250, 1500, 1000, 1500, 2000, 250, 1800 ],
+        backgroundColor: "rgba(116, 119, 191, .25)",
+        borderColor: "#7477bf",
+        borderWidth: 1,
+        lineTension: 0,
+        pointBackgroundColor: "white",
+        pointRadius: 5
+      }
+    ]
+  },
+  weekly: {
+    labels: [ "16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3", "4-10", "11-17", "18-24", "25-31" ],
+    datasets: [
+      {
+        data: [ 500, 1000, 750, 1250, 1750, 1250, 1500, 1000, 1500, 2000, 1500, 2000 ],
+        backgroundColor: "rgba(116, 119, 191, .25)",
+        borderColor: "#7477bf",
+        borderWidth: 1,
+        lineTension: 0,
+        pointBackgroundColor: "white",
+        pointRadius: 5
+      }
+    ]
+  },
+  daily: {
+    labels: [ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" ],
+    datasets: [
+      {
+        data: [75, 50, 75, 150, 100, 200, 175],
+        backgroundColor: "rgba(116, 119, 191, .25)",
+        borderColor: "#7477bf",
+        borderWidth: 1,
+        lineTension: 0,
+        pointBackgroundColor: "white",
+        pointRadius: 5
+      }
+    ]
+  },
+  hourly: {
+    labels: [ "00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "21:00", "22:00", "23:00" ],
+    datasets: [
+      {
+        data: [ 75, 50, 75, 150, 100, 200, 175, 25, 5, 10, 10, 25, 50, 100, 250, 5, 0, 15, 30, 20, 25, 200, 170, 150 ],
+        backgroundColor: "rgba(116, 119, 191, .25)",
+        borderColor: "#7477bf",
+        borderWidth: 1,
+        lineTension: 0,
+        pointBackgroundColor: "white",
+        pointRadius: 5
+      }
+    ]
+  }
+};
+
+
+
+const widgetButtons = document.querySelector(".switch-toggle");
+
+// -----load traffic charts(hourly, daily, weekyly, monthly)-----
+var tC = new Chart(trafficChart, {
+  type: "line",
+  data: newTrafficChart.weekly,
+  options: newTrafficChart.options
+});
+widgetButtons.addEventListener("click", function(e) {
+  // for (let i = 0; i < widgetButtons.children.length; i++) {
+  //   widgetButtons.children[i].classList.remove("selected");
+  // }
+  if (tC) {
+    tC.destroy();
+  }
+  if (e.target.nextElementSibling.innerText.toLowerCase() === "monthly") {
+    // e.target.nextElementSibling.classList.add("selected");
+    tC = new Chart(trafficChart, {
+      type: "line",
+      data: newTrafficChart.monthly,
+      options: newTrafficChart.options
+    });
+  }
+  if (e.target.nextElementSibling.innerText.toLowerCase() === "weekly") {
+    // e.target.nextElementSibling.classList.add("selected");
+    tC = new Chart(trafficChart, {
+      type: "line",
+      data: newTrafficChart.weekly,
+      options: newTrafficChart.options
+    });
+  }
+  if (e.target.nextElementSibling.innerText.toLowerCase() === "daily") {
+    // e.target.nextElementSibling.classList.add("selected");
+    tC = new Chart(trafficChart, {
+      type: "line",
+      data: newTrafficChart.daily,
+      options: newTrafficChart.options
+    });
+  }
+  if (e.target.nextElementSibling.innerText.toLowerCase() === "hourly") {
+    // e.target.nextElementSibling.classList.add("selected");
+    tC = new Chart(trafficChart, {
+      type: "line",
+      data: newTrafficChart.hourly,
+      options: newTrafficChart.options
+    });
+  }
+});
+
 
 //Bar Chart
 var ctx = document.getElementById("myChart").getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels: ["S", "M", "T", "W", "T", "F", "S"],
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-
-            borderWidth: 1
-        }]
+            label: "",
+            data: [50, 75, 150, 105, 200, 170, 75],
+            backgroundColor: 'rgba(153, 102, 255, 1)',
+        }],
     },
     options: {
+      legend: {
+        display: false,
+      },
+      layout: {
+        padding: 18,
+      },
         scales: {
-            yAxes: [{
+          xAxes: [
+            {
+              barPercentage: 0.5,
+            }
+          ],
+            yAxes: [
+              {
                 ticks: {
-                    beginAtZero:true
+                    beginAtZero:true,
+                    stepSize: 50,
+                    max: 250,
                 }
-            }]
+              }
+            ]
         }
     }
 }); // end bar chart
@@ -90,7 +180,7 @@ var myDoughnutChart = new Chart(ctx, {
         label:'MOBILE USERS',
         data: [13, 12, 40],
         backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
+          'rgba(129, 201, 143, 1)',
           'rgba(75, 192, 192, 1)',
           'rgba(153, 102, 255, 1)',
         ],
@@ -98,6 +188,15 @@ var myDoughnutChart = new Chart(ctx, {
       labels: ['Phones', 'Tablets', 'Desktop'],
     },
     options: {
+      legend: {
+        position:'right',
+        labels: {
+          boxWidth: 14,
+        },
+      },
+      layout: {
+        padding: 30,
+      },
       rotation: 4,
       // animation.animateRotate: true,
        // scales: {
@@ -106,3 +205,5 @@ var myDoughnutChart = new Chart(ctx, {
        // },
     }
 });
+
+//----- close alert -----
