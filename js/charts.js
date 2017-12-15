@@ -92,14 +92,10 @@ var tC = new Chart(trafficChart, {
   options: newTrafficChart.options
 });
 widgetButtons.addEventListener("click", function(e) {
-  // for (let i = 0; i < widgetButtons.children.length; i++) {
-  //   widgetButtons.children[i].classList.remove("selected");
-  // }
   if (tC) {
     tC.destroy();
   }
   if (e.target.nextElementSibling.innerText.toLowerCase() === "monthly") {
-    // e.target.nextElementSibling.classList.add("selected");
     tC = new Chart(trafficChart, {
       type: "line",
       data: newTrafficChart.monthly,
@@ -198,12 +194,5 @@ var myDoughnutChart = new Chart(ctx, {
         padding: 30,
       },
       rotation: 4,
-      // animation.animateRotate: true,
-       // scales: {
-       //   // scaleLabel: true,
-       //   // abelString: 'Yy',
-       // },
     }
 });
-
-//----- close alert -----
