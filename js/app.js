@@ -64,6 +64,12 @@ function makeEventLisetener(button) {
     if (dmUserInput.value) {
       btnColor(sendBtn, 'green', 'MESSAGE SENT');
     }
+    if(!dmUserTextArea.value) {
+        btnColor(sendBtn, 'red', 'FORM IS EMPTY');
+    }
+    if (dmUserTextArea.value) {
+      btnColor(sendBtn, 'green', 'MESSAGE SENT');
+    }
 
   });
 }
