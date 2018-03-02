@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.dashboard-icon {
+  background: url('./icons/icon-dashboard.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: block;
+  height: 1.8em;
+  width: 1.8em;
+}
+
+.members-icon {
+  background: url('./icons/icon-members.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: block;
+  height: 1.8em;
+  width: 1.8em;
+}
+
+.visits-icon {
+  background: url('./icons/icon-visits.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: block;
+  height: 1.8em;
+  width: 1.8em;
+}
+
+.settings-icon {
+  background: url('./icons/icon-bell.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: block;
+  height: 1.8em;
+  width: 1.8em;
+}
