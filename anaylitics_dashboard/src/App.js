@@ -5,7 +5,7 @@ export default class App extends Component {
   render() {
     return (
 
-      <div className="App">
+      <div className="App-b">
           <header className="main-header flex col-12 clearfix">
             <h2 className="main-logo">Your<span className="trademark">App&#8482;</span></h2>
 
@@ -17,16 +17,16 @@ export default class App extends Component {
             </div>
           </header>
 
-        <main className="main-body flex">
-          <nav className="main-side-nav ">
+        {/* <main className="main-body flex"> */}
+          <nav className="main-side-nav clearfix">
           <ul className="side-nav">
-            <li className="icons"><a href="#?" className="link"><span className="icon-hover"></span><span className='dashboard-icon'></span></a></li>
-            <li className="icons"><a href="#?" className="link"><span className="icon-hover hidden"></span><img src="icons/icon-members.svg" alt="members" /></a></li>
-            <li className="icons"><a href="#?" className="link"><span className="icon-hover hidden"></span><img src="icons/icon-visits.svg" alt="visits" /></a></li>
-            <li className="icons"><a href="#?" className="link"><span className="icon-hover hidden"></span><img src="icons/icon-settings.svg" alt="settings" /></a></li>
+            <li className="icons"><a href="#bammm" className="link"><span className='dashboard-icon'></span></a></li>
+            <li className="icons"><a href="#" className="link"><span className='members-icon'></span></a></li>
+            <li className="icons"><a href="#" className="link"><span className='visits-icon'></span></a></li>
+            <li className="icons"><a href="#" className="link"><span className='settings-icon'></span></a></li>
           </ul>
         </nav>
-      </main>
+      {/* </main> */}
 
       </div>
     );

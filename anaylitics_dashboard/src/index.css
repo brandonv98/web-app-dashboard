@@ -1,41 +1,70 @@
-body {
+html, body, main {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
+  /* Make the body to be as tall as browser window */
+  height: 100%;
+  /* background: #ccc; */
+  /* padding: 20px; */
+  font-family: 'Varela Round', sans-serif;
+  line-height: 1.6;
+  color: #3a3a3a;
+  margin: 0;
+  /*FBFBFB*/
+  /* width: 100%; */
+  /* min-width: 346px; */
+}
+
+.App-b, #root {
+  height: 100%;
+}
+
+.main-side-nav {
+  height: 100%;
+  height: calc(100% - 5em);
+  background-color: #4D4C72;
+  max-width: 5em;
+}
+
+.side-nav {
+  padding: 0em;
+}
+
+ul {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  height: 35%;
+  /* fallback if needed */
+  overflow: auto;
+  margin: auto;
 }
 
 .dashboard-icon {
   background: url('./icons/icon-dashboard.svg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: block;
-  height: 1.8em;
-  width: 1.8em;
 }
 
 .members-icon {
   background: url('./icons/icon-members.svg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: block;
-  height: 1.8em;
-  width: 1.8em;
 }
 
 .visits-icon {
   background: url('./icons/icon-visits.svg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: block;
-  height: 1.8em;
-  width: 1.8em;
 }
 
 .settings-icon {
-  background: url('./icons/icon-bell.svg');
+  background: url('./icons/icon-settings.svg');
+}
+
+.settings-icon, .visits-icon, .dashboard-icon, .members-icon {
   background-repeat: no-repeat;
   background-size: cover;
   display: block;
   height: 1.8em;
   width: 1.8em;
+  margin: auto;
+}
+
+.side-nav li:active, .side-nav li:focus, .side-nav li:focus-within {
+  border-left: 2px solid #80C98E;
 }
