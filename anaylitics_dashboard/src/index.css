@@ -19,6 +19,8 @@ html, body, main {
   height: calc(100% - 5em);
   background-color: #4D4C72;
   max-width: 5em;
+  float: left;
+  width: 100%;
 }
 
 .side-nav {
@@ -51,6 +53,27 @@ ul {
   background: url('./icons/icon-settings.svg');
 }
 
+.google-icon {
+  background: url('./icons/google.svg');
+}
+
+.facebook-icon {
+  background: url('./icons/facebook.svg');
+}
+
+.twitter-icon {
+  background: url('./icons/twitter.svg');
+}
+
+.twitter-icon, .google-icon, .facebook-icon {
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: block;
+  height: 4.8em;
+  width: 4.8em;
+  margin: auto;
+}
+
 .settings-icon, .visits-icon, .dashboard-icon, .members-icon {
   background-repeat: no-repeat;
   background-size: cover;
@@ -59,6 +82,42 @@ ul {
   width: 1.8em;
   margin: auto;
 }
+
+.icons-background {
+  background: #7377BF;
+  border-radius: 100%;
+  padding: 1em;
+}
+
+.switcher .office {
+  #bulb {
+    animation: switch 3s 4 ease both;
+  }
+  #background {
+    animation: fillChange 3s 4 ease both;
+  }
+}
+
+@keyframes switch {
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes fillChange {
+  50% {
+    fill: #FFDB79;
+  }
+}
+
+/* .twitter-icon {
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: block;
+  height: 1.8em;
+  width: 1.8em;
+  margin: auto;
+} */
 
 .side-nav li:active, .side-nav li:focus, .side-nav li:focus-within {
   border-left: 2px solid #80C98E;

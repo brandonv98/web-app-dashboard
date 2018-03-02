@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 
+// components
+import DataCharts from './Components/DataCharts';
+import SocialMedia from './Components/SocialMedia';
+
 export default class App extends Component {
   render() {
     return (
@@ -27,6 +31,31 @@ export default class App extends Component {
           </ul>
         </nav>
       {/* </main> */}
+
+      <div className="row">
+        <div className=" flex">
+          <div className="flex justify-center col-2 border border-delete">
+            <h3 className="text-margin">Dashbord</h3>
+          </div>
+          <div className="col-10 flex search ">
+            <input id="search" className="search-box search-icon" name="searchbox" placeholder="Search" />
+          </div>
+        </div>
+      </div>
+
+      <div className="row">
+        <div className="flex spaced popup-alert">
+          <div className="grouped">
+            <span className="alert">Alert </span>
+            <span className="alert-info">Null this is a alert telling you about the alert and how this means nothing at all. But to have you was your time reading it :)</span>
+          </div>
+          <span className="close-btn">x</span>
+        </div>
+      </div>
+
+
+      <DataCharts />
+      <SocialMedia />
 
       </div>
     );
