@@ -1,18 +1,13 @@
 html, body, main {
   margin: 0;
   padding: 0;
-  /* font-family: sans-serif; */
   /* Make the body to be as tall as browser window */
   height: 100%;
-  /* background: #ccc; */
-  /* padding: 20px; */
+  background: #ccc;
   font-family: 'Varela Round', sans-serif;
   line-height: 1.6;
   color: #3a3a3a;
   margin: 0;
-  /*FBFBFB*/
-  /* width: 100%; */
-  /* min-width: 346px; */
 }
 
 .App-b, #root {
