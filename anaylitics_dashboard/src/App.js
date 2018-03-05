@@ -4,6 +4,7 @@ import './App.css';
 // components
 import DataCharts from './Components/DataCharts';
 import SocialMedia from './Components/SocialMedia';
+import Widgets from './Components/Widgets';
 
 export default class App extends Component {
   render() {
@@ -56,6 +57,7 @@ export default class App extends Component {
 
       <DataCharts />
       <SocialMedia />
+      <Widgets />
 
       </div>
     );
